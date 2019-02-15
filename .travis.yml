@@ -1,0 +1,15 @@
+script:
+- |
+  git config user.name "gee-contrib"
+  git config user.email "47660532+gee-contrib@users.noreply.github.com"
+  git remote remove origin
+  git remote add origin https://$GITHUB_API_KEY@github.com/gee-contrib/gee-wiki-fork.git > /dev/null 2>&1
+  git remote add upstream https://$GITHUB_API_KEY@github.com/gee-contrib/gee-wiki.wiki.git > /dev/null 2>&1
+  git fetch origin
+  git fetch upstream
+  git merge upstream/master --no-edit
+  git push origin HEAD:master > /dev/null 2>&1
+  git push upstream HEAD:master > /dev/null 2>&1
+env:
+  matrix:
+    secure: ScwG4dYzcE4ns92cfhiYnWoiFHcEWEdy+8mg/QPEHW6gMvexoqpGDXRdrgTrvrolMWog/gaTkge0zn6WHG3ISkocQqv/9DC3DjcAu5ceYtLApRbYl0w4D4bzCg6kOImXsswLLzeeTHW5nw+MTyXNYNY3GSN2ibdu6Up+pPWpvc6SPc3/g7DKVws3/3RGAQ5NjUoU1dUx7J9PsdpRH2jD2H132FonEWeK/iCH0O+xy8I7E8BqH4q1yvCsvsgla4rlkkRhMKtk79jHlEikpKFBIfsuPAHtnr59GYcf0rvDQ2oIL6V5goRoEuDQADYBQ3EXkZHI7a1Tae010P88ZsXQhNs+etu7C6Hh2DKPPsJLXC5+Vs22Jrxj8y7sXZW0yMsiAqxIA6oNhWquaMzFvacfuF4OMYbTg8dkbokY7XbcmKEWQQlp2HoidCoYdZkvHuPaQQSrcUiOncgFrQUUNzC7Jm3M7p3cdQNieSjGrNFwik4z+JS2AOFRYW8zWUkqh4WFJ6lcobEKrYC6RN63kQ69+mor5g1h4+BTDXKhzgcZcIMoqKnxOL6tJvf91IhpG8airFYhmGaCQwj1yjboqcaqEIhGd89uXtxXBZiexGkJRggqC+rL7epXpTtPv9g+ycl58R0ILUKHsk4oxyhziNl7y5qMvUXn6O6qyszIMmwZr0E=
